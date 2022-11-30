@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="icon" href="favicon.ico">
     <title>出校申请</title>
-    <link href="/run/static/css/chunk-e5e09d44.d54f7dde.css" rel="prefetch">
-    <link rel="stylesheet" type="text/css" href="/run/static/css/chunk-e5e09d44.d54f7dde.css">
+    <link href="./static/css/chunk-e5e09d44.d54f7dde.css" rel="prefetch">
+    <link rel="stylesheet" type="text/css" href="./static/css/chunk-e5e09d44.d54f7dde.css">
 
-    <link href="/run/static/css/app.8d890870.css" rel="preload" as="style">
-    <link href="/run/static/css/app.8d890870.css" rel="stylesheet">
+    <link href="./static/css/app.8d890870.css" rel="preload" as="style">
+    <link href="./static/css/app.8d890870.css" rel="stylesheet">
 
-    <link href="/run/static/css/chunk-vendors.837470ce.css" rel="preload" as="style">
-    <link href="/run/static/css/chunk-vendors.837470ce.css" rel="stylesheet">
+    <link href="./static/css/chunk-vendors.837470ce.css" rel="preload" as="style">
+    <link href="./static/css/chunk-vendors.837470ce.css" rel="stylesheet">
 
-    <link href="/run/static/js/app.f3cd1c57.js" rel="preload" as="script">
+    <link href="./static/js/app.f3cd1c57.js" rel="preload" as="script">
 
-    <link href="/run/static/js/chunk-e5e09d44.ac940c69.js" rel="prefetch">
-    <script charset="utf-8" src="/run/static/js/chunk-e5e09d44.ac940c69.js"></script>
+    <link href="./static/js/chunk-e5e09d44.ac940c69.js" rel="prefetch">
+    <script charset="utf-8" src="./static/js/chunk-e5e09d44.ac940c69.js"></script>
 </head>
 <body>
 <noscript><strong>We're sorry but vue-admin doesn't work properly without JavaScript enabled. Please enable it to
@@ -107,11 +107,32 @@
     var time = function(){
         return year+"-"+month+"-"+day+" "+hh+":"+mm+":"+ss;
     }
+
+    var nextDay = new Date();
+    nextDay.setDate(date.getDate() + 1);
+
+    var year1=nextDay.getFullYear();
+    var month1=(nextDay.getMonth()+1)<10?"0"+(nextDay.getMonth()+1):(nextDay.getMonth()+1);
+    var day1=nextDay.getDate()<10?"0"+nextDay.getDate():nextDay.getDate();
+    var hh1=nextDay.getHours()<10?"0"+nextDay.getHours():nextDay.getHours();
+    var mm1=nextDay.getMinutes()<10?"0"+nextDay.getMinutes():nextDay.getMinutes();
+    var ss1=nextDay.getSeconds()<10?"0"+nextDay.getSeconds():nextDay.getSeconds();
+
     var tomorrow = function(){
-        return year+"-"+month+"-"+(day+1)+" "+hh+":"+mm+":"+ss;
+        return year1+"-"+month1+"-"+day1+" "+hh1+":"+mm1+":"+ss1;
     }
+
+    var beforeTodey = new Date();
+    beforeTodey.setDate(date.getDate() - 1);
+
+    var year2=beforeTodey.getFullYear();
+    var month2=(beforeTodey.getMonth()+1)<10?"0"+(beforeTodey.getMonth()+1):(beforeTodey.getMonth()+1);
+    var day2=beforeTodey.getDate()<10?"0"+beforeTodey.getDate():beforeTodey.getDate();
+    var hh2=beforeTodey.getHours()<10?"0"+beforeTodey.getHours():beforeTodey.getHours();
+    var mm2=beforeTodey.getMinutes()<10?"0"+beforeTodey.getMinutes():beforeTodey.getMinutes();
+    var ss2=beforeTodey.getSeconds()<10?"0"+beforeTodey.getSeconds():beforeTodey.getSeconds();
     var yesterday = function(){
-        return year+"-"+month+"-"+(day-1)+" "+hh+":"+mm+":"+ss;
+        return year2+"-"+month2+"-"+day2+" "+hh2+":"+mm2+":"+ss2;
     }
 
     let dateLine = document.querySelector("#lineCodeHeight > div.pt44 > ul > li > div.h60.br > div:nth-child(2)")
